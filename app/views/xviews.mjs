@@ -170,15 +170,15 @@ const xviews = Object.assign({
             x('h5', {class: 'modal-title'}, 'Login instructions')
           ),
           x('div', {class:'modal-body'},
-            x('p', 'By using github-forum, you understand that you are using your own github account to post, read or comment on data. github-forum allows your browser to connect with github directly without the need for third party authorization. At no time are your personal details trusted to any third party organizations and your login credentials only ever travel between your browser and github.'),
+            x('p', 'By using trademeet, you understand that you are using your own github account to post, read or comment on data. trademeet allows your browser to connect with github directly without the need for third party authorization. At no time are your personal details trusted to any third party organizations and your login credentials only ever travel between your browser and github.'),
             x('p', 'You also understand that misuse of this site is misuse of your github account. Even if not logged in, misuse of this site will quickly lead to your ip being blocked by github'),
-            x('p', 'github-forum is completely open source and available for code review ', x('span', {
+            x('p', 'trademeet is completely open source and available for code review ', x('span', {
               class: 'a-txt sh-95',
               onclick(){
                 window.open(xdata.app.code_base)
               }
             }, 'here')),
-            x('p', 'To login to github-forum for the first time you need to do the following:'),
+            x('p', 'To login to trademeet for the first time you need to do the following:'),
             x('ul',
               x('li', 'Login to your Github Account'),
               x('li', 'navigate to ', x('span', {
@@ -191,10 +191,10 @@ const xviews = Object.assign({
               x('li', 'The created access token need only have permissions to read user profile and write issues/comments'),
               x('li', 'select the scopes read:user and public_repo'),
               x('li', 'click on the “Generate token” button'),
-              x('li', 'Type or paste the created access token into the github-forum login access token input'),
-              x('li', 'add a strong password to the github-forum login input to store an AES-256-GCM encrypted copy of the token locally. Do not lose the password, as the encrypted token alone is useless and you will have to reset the process.'),
+              x('li', 'Type or paste the created access token into the trademeet login access token input'),
+              x('li', 'add a strong password to the trademeet login input to store an AES-256-GCM encrypted copy of the token locally. Do not lose the password, as the encrypted token alone is useless and you will have to reset the process.'),
               x('li', 'click the commit button'),
-              x('li', 'if successful, you should be redirected to your github-forum profile page'),
+              x('li', 'if successful, you should be redirected to your trademeet profile page'),
               x('li', 'upon future logins and assuming the encrypted token is stored locally, you need only type your password to login'),
               x('li', 'Your encrypted token can be deleted at anytime by clicking the reset button on the login page'),
             )
@@ -520,7 +520,7 @@ const xviews = Object.assign({
         x('div', {class: 'col-lg-6'},
           x('div', {class:'card'},
            x('div', {class:'card-body'},
-              x('h4', 'Github-forum '+ arr[i] +' feed'),
+              x('h4', 'trademeet '+ arr[i] +' feed'),
               x('input', {
                 class: 'form-control text-center',
                 value: xdata.app[arr[i] +'_feed'],

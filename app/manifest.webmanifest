@@ -1,9 +1,9 @@
 {
-  "name": "github-forum",
+  "name": "trademeet",
   "lang": "en-US",
-  "short_name": "github-forum",
+  "short_name": "trademeet",
   "start_url": ".",
-  "description": "github-forum",
+  "description": "trademeet",
   "icons": [{
     "src": "./img/ico/512x512.png",
     "sizes": "512x512",

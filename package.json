@@ -1,14 +1,14 @@
 {
-  "name": "github-forum",
+  "name": "trademeet",
   "version": "1.0.0",
-  "description": "a github pages forum that requires no db or extra server",
+  "description": "",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/angeal185/github-forum.git"
+    "url": "git+https://github.com/angeal185/trademeet.git"
   },
   "keywords": [
     "forum", "single-page-app", "javascript", "news-feed",
@@ -17,7 +17,7 @@
   "author": "ben eaves",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/angeal185/github-forum/issues"
+    "url": "https://github.com/angeal185/trademeet/issues"
   },
-  "homepage": "https://github.com/angeal185/github-forum#readme"
+  "homepage": "https://github.com/angeal185/trademeet#readme"
 }

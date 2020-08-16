@@ -2,13 +2,13 @@ import { routes } from './routes.mjs';
 import { jsonld } from './jsonld.mjs';
 
 // defaults
-const repo = 'angeal185/github-forum-issues',
-news_repo = 'angeal185/github-forum-news',
-report_repo = 'angeal185/github-forum-report',
+const repo = 'angeal185/trademeet-issues',
+news_repo = 'angeal185/trademeet-news',
+report_repo = 'angeal185/trademeet-report',
 report_repo_issue = '1',
 news_id = 142029577,
-origin = 'https://angeal185.github.io/github-forum',
-code_base = 'https://github.com/angeal185/github-forum',
+origin = 'https://angeal185.github.io/trademeet',
+code_base = 'https://github.com/angeal185/trademeet',
 github_api = 'https://api.github.com',
 api = origin +'/api',
 issues_feed = origin +'/atom/issues.atom',
@@ -17,7 +17,7 @@ news_feed = origin +'/atom/news.atom';
 const xdata = Object.assign({
   default:{
     version: '1.0.0', // don't delete me
-    title: 'github forum',
+    title: 'trademeet',
     logo: './app/img/logo.png',
     origin: origin,
     params: true,
@@ -35,10 +35,10 @@ const xdata = Object.assign({
       content: './app/browserconfig.xml'
     },{
       name: 'apple-mobile-web-app-title',
-      content: 'github-forum'
+      content: 'trademeet'
     },{
       name: 'application-name',
-      content: 'github-forum'
+      content: 'trademeet'
     }],
     styles:[{
       href: './app/css/bootstrap.min.css',
@@ -49,12 +49,12 @@ const xdata = Object.assign({
     },{
       rel: 'alternate',
       type: 'application/atom+xml',
-      title: "github-forum issues feed",
+      title: "trademeet issues feed",
       href: issues_feed
     },{
       rel: 'alternate',
       type: 'application/atom+xml',
-      title: "github-forum news feed",
+      title: "trademeet news feed",
       href: news_feed
     },{
       rel: 'apple-touch-icon',

@@ -1,22 +1,22 @@
 {
-  "baseurl": "https://angeal185.github.io/github-forum",
-  "feedurl": "https://api.github.com/repos/angeal185/github-forum-issues/issues",
-  "newsurl": "https://api.github.com/repos/angeal185/github-forum-news/issues",
+  "baseurl": "https://angeal185.github.io/trademeet",
+  "feedurl": "https://api.github.com/repos/angeal185/trademeet-issues/issues",
+  "newsurl": "https://api.github.com/repos/angeal185/trademeet-news/issues",
   "templates": {
     "forum": {
-      "title": "github-forum issues feed",
-      "subtitle": "latest github-forum issues",
+      "title": "trademeet issues feed",
+      "subtitle": "latest trademeet issues",
       "icon": "https://example.com/icon.png",
       "logo": "https://example.com/logo.png",
       "updated": "2020-06-03T12:58:08.285Z",
       "id": "urn:uuid:4027dc85-130a-4ca3-84f4-5a5e68b3faa9",
-      "rights": "© 2020 github-forum",
-      "generator": "github-forum",
+      "rights": "© 2020 trademeet",
+      "generator": "trademeet",
       "link": {
         "type": "",
         "rel": "",
-        "title": "github-forum",
-        "href": "https://angeal185.github.io/github-forum",
+        "title": "trademeet",
+        "href": "https://angeal185.github.io/trademeet",
         "hreflang": ""
       },
       "category": {
@@ -33,19 +33,19 @@
       "entries": []
     },
     "news": {
-      "title": "github-forum news feed",
-      "subtitle": "latest github-forum news",
+      "title": "trademeet news feed",
+      "subtitle": "latest trademeet news",
       "icon": "https://example.com/icon.png",
       "logo": "https://example.com/logo.png",
       "updated": "2020-06-03T12:58:08.285Z",
       "id": "urn:uuid:4027dc85-130a-4ca3-84f4-5a5e68b3faa9",
-      "rights": "© 2020 github-forum",
-      "generator": "github-forum",
+      "rights": "© 2020 trademeet",
+      "generator": "trademeet",
       "link": {
         "type": "",
         "rel": "",
-        "title": "github-forum",
-        "href": "https://angeal185.github.io/github-forum",
+        "title": "trademeet",
+        "href": "https://angeal185.github.io/trademeet",
         "hreflang": ""
       },
       "category": {

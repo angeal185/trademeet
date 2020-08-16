@@ -1,5 +1,5 @@
 let ORIGIN =
-'https://angeal185.github.io/github-forum',
+'https://angeal185.github.io/trademeet',
 //'http://localhost:8000',
 DEV_MODE = true,
 CACHE_VERSION = 1,
