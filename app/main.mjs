@@ -3,7 +3,22 @@ import { xidb } from './modules/xidb.mjs';
 import { utils } from './modules/utils.mjs';
 
 
-router.on('/login', function(request, stream){
+router.on('/portal', function(request, stream){
+  stream.render('portal', request.data, function(err){
+    if(err){return stream.renderErr();}
+  })
+})
+.on('/portal/developers', function(request, stream){
+  stream.render('developers', request.data, function(err){
+    if(err){return stream.renderErr();}
+  })
+})
+.on('/portal/entrepreneurs', function(request, stream){
+  stream.render('entrepreneurs', request.data, function(err){
+    if(err){return stream.renderErr();}
+  })
+})
+.on('/login', function(request, stream){
   stream.render('login', request.data, function(err){
     if(err){return stream.renderErr();}
   })

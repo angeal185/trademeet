@@ -440,3 +440,7 @@ margin-top: 1rem;
 .fw-300{
   font-weight: 300;
 }
+
+.capital{
+  text-transform: capitalize;
+}

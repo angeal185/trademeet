@@ -22,7 +22,7 @@ const xdata = Object.assign({
     origin: origin,
     params: true,
     error: '/error',
-    base_path: '/forum',
+    base_path: '/portal',
     delete_meta: false,
     webmanifest: './app/manifest.webmanifest',
     base_script_name: 'main',
