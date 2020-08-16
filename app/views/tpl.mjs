@@ -1124,7 +1124,7 @@ const tpl = {
     item = x('div', {class: 'list-group d-none d-lg-block'},
       x('div', {class: 'list-group-item active'}, 'Categories'),
       div
-    ),
+    )
 
     utils.get(xdata.app.api +'/categories.json', xdata.default.stream.json, function(err,cats){
       if(err){return console.error(err)}
