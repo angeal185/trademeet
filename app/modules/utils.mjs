@@ -19,6 +19,19 @@ const utils = {
       cb(err)
     })
   },
+  get_md(src, options, cb){
+    fetch(src, options).then(function(res){
+      if (res.status >= 200 && res.status < 300) {
+        return res.text();
+      } else {
+        return Promise.reject(new Error(res.statusText))
+      }
+    }).then(function(data){
+      cb(false, data);
+    }).catch(function(err){
+      cb(err)
+    })
+  },
   getUserData(tk, router){
     let obj = xdata.default.stream.fetch
     obj.headers['Authorization'] = 'token '+ tk

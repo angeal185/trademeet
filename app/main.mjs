@@ -108,6 +108,11 @@ router.on('/portal', function(request, stream){
     if(err){return stream.renderErr();}
   })
 })
+.on('/wiki/article', function(request, stream) {
+  stream.render('wiki_article', request.data, function(err){
+    if(err){return stream.renderErr();}
+  })
+})
 .on('/atom', function(request, stream) {
   stream.render('atom', request.data, function(err){
     if(err){return stream.renderErr();}

@@ -38,7 +38,7 @@ const routes = {
   terms: {
     msg: 'some terms data here...'
   },
-  terms: {
+  wiki: {
     msg: 'Trademeet wiki'
   },
   portal: {

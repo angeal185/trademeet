@@ -26,7 +26,7 @@ const xdata = Object.assign({
     delete_meta: false,
     webmanifest: './app/manifest.webmanifest',
     base_script_name: 'main',
-    csp: "default-src 'self';img-src *;object-src 'none';frame-src 'none';block-all-mixed-content;upgrade-insecure-requests;connect-src https://angeal185.github.io "+ github_api,
+    csp: "default-src 'self';img-src *;object-src 'none';frame-src 'none';block-all-mixed-content;upgrade-insecure-requests;connect-src http://localhost:8000 https://raw.githubusercontent.com/wiki/angeal185/trademeet/ https://angeal185.github.io "+ github_api,
     meta: [{
       name: 'viewport',
       content: 'width=device-width, initial-scale=1'
@@ -65,7 +65,9 @@ const xdata = Object.assign({
       href: './app/img/ico/safari-pinned-tab.svg',
       color: '#000000'
     }],
-    js_head:[],
+    js_head:[{
+      src: './app/js/markdownit.js'
+    }],
     js_body:[],
     jsonLD: jsonld,
     strip_unsafe: ['eval'],
@@ -112,6 +114,14 @@ const xdata = Object.assign({
           'Accept': 'application/vnd.github.squirrel-girl-preview',
           'Content-Type': 'application/json',
           'Sec-Fetch-Dest': 'object',
+          'Sec-Fetch-mode': 'cors',
+          'Sec-Fetch-Site': 'cross-site'
+        }
+      },
+      md: {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'text/plain; charset=utf-8',
           'Sec-Fetch-mode': 'cors',
           'Sec-Fetch-Site': 'cross-site'
         }

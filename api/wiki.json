@@ -3,6 +3,9 @@
   "categoy": ["Trademeet"],
   "items": [{
     "title": "Introduction",
-    "path": "introduction.md"
+    "path": "introduction.md",
+    "duration": "1min",
+    "author": "Angeal185",
+    "avatar": "https://avatars3.githubusercontent.com/u/18084234?v=4"
   }]
 }]
