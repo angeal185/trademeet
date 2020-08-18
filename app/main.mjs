@@ -103,6 +103,11 @@ router.on('/portal', function(request, stream){
     if(err){return stream.renderErr();}
   })
 })
+.on('/wiki', function(request, stream) {
+  stream.render('wiki', request.data, function(err){
+    if(err){return stream.renderErr();}
+  })
+})
 .on('/atom', function(request, stream) {
   stream.render('atom', request.data, function(err){
     if(err){return stream.renderErr();}

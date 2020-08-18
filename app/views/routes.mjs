@@ -40,6 +40,21 @@ const routes = {
   hub(stream, data){
 
   },
+  wiki(stream, data){
+
+    let item = x('div',
+      x('h3', data.msg)
+    )
+    utils.get('./api/wiki.json', xdata.default.stream.json, function(err,res){
+      if(err){
+        utils.toast('danger', 'Failed to fetch wiki data');
+        return console.error(err)
+      }
+      console.log(res)
+    })
+    
+    return item;
+  },
   terms(stream, data){
     return x('p', data.msg)
   },
