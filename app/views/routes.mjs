@@ -28,12 +28,16 @@ const routes = {
         )
       )
     }
+
     return item
   },
   developers(stream, data){
 
   },
   entrepreneurs(stream, data){
+
+  },
+  hub(stream, data){
 
   },
   terms(stream, data){

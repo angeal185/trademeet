@@ -382,6 +382,23 @@ const utils = {
         a[j] = x;
     }
     return a;
+  },
+  sanitizeURI(str){
+    try {
+      if(typeof str !== 'string'){
+        return false;
+      }
+      str = decodeURIComponent(str);
+      let url = new URL(str);
+      if(url.protocol !== 'https:' || url.search || str.split('?').length > 1){
+        return false;
+      }
+      url = null;
+      return encodeURI(str);
+    } catch (err) {
+      console.error(err);
+      return false;
+    }
   }
 }
 
