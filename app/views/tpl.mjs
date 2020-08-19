@@ -899,30 +899,55 @@ const tpl = {
     }
     return sect;
   },
-  user_card(obj){
+  user_card(obj, router){
 
     return x('div', {class: 'col-12'},
-        x('div', {class: 'card mb-4'},
-          x('div', {class: 'card-body'},
+      x('div', {class: 'card mb-4'},
+        x('div', {class: 'card-body'},
+          x('div', {class: 'text-center'},
+            x('img', {
+              class: 'img-thumbnail mr-4 user-img',
+              src: obj.avatar_url || xdata.app.user_logo,
+              onerror(evt){
+                evt.target.src = xdata.app.user_logo;
+              }
+            }),
             x('div', {class: 'text-center'},
-              x('img', {
-                class: 'img-thumbnail mr-4 user-img',
-                src: obj.avatar_url || xdata.app.user_logo,
-                onerror(evt){
-                  evt.target.src = xdata.app.user_logo;
-                }
-              }),
-              x('div', {class: 'text-center'},
-                x('h4', {class: 'mb-4'}, obj.login),
-                x('p', {class: 'user-txt'}, obj.bio || ''),
-                x('p', {class: 'user-txt'}, obj.location || ''),
-                x('p', {class: 'user-txt'}, obj.blog || ''),
-                x('button', {class: 'btn btn-outline-default mt-2'}, 'View my hub')
-              )
+              x('h4', {class: 'mb-4'}, obj.login),
+              x('p', {class: 'user-txt'}, obj.bio || ''),
+              x('p', {class: 'user-txt'}, obj.location || ''),
+              x('p', {class: 'user-txt'}, obj.blog || ''),
+              function(){
+                let btn = x('button',{class: 'btn btn-outline-default btn-sm mt-2'})
+                utils.get(xdata.app.hub_base +'/api/hub.json', xdata.default.stream.json, function(err,res){
+                  if(err){
+                    utils.toast('danger', 'Failed to fetch hub data');
+                    return console.error(err)
+                  }
+                  let has_hub = false
+                  for (let i = 0; i < res.length; i++) {
+                    if(res[i][0] === obj.login){
+                      has_hub = true;
+                      break;
+                    }
+                  }
+                  if(has_hub){
+                    btn.textContent = 'View my hub'
+                    btn.onclick = function(){
+                      router.rout('/hub/user?user='+ encodeURIComponent(obj.login))
+                    }
+                  } else {
+                    btn.textContent = 'no hub yet'
+                  }
+                })
+                return btn;
+              }
             )
           )
         )
       )
+    )
+
   },
   show_more_cat(cat, items, router){
 

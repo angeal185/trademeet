@@ -78,7 +78,7 @@ const xviews = Object.assign({
   },
   hub_user(stream, data){
 
-      
+
   },
   profile(stream, data){
     try {
@@ -160,7 +160,7 @@ const xviews = Object.assign({
       })
     })
 
-    utils.get('./api/hub.json', xdata.default.stream.json, function(err,res){
+    utils.get(xdata.app.hub_base +'/api/hub.json', xdata.default.stream.json, function(err,res){
       if(err){
         utils.toast('danger', 'Failed to fetch hub data');
         return console.error(err)
@@ -378,7 +378,7 @@ const xviews = Object.assign({
       item.append(ucard);
       utils.get(xdata.app.users_data + data.term, xdata.default.stream.fetch, function(err,res){
         if(err){return ucard.remove();}
-        ucard.append(tpl.user_card(res))
+        ucard.append(tpl.user_card(res, router))
       })
     }
 
