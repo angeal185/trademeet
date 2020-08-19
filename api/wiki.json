@@ -1,6 +1,6 @@
 [{
   "base_url": "https://raw.githubusercontent.com/wiki/angeal185/trademeet/",
-  "categoy": ["Trademeet"],
+  "category": "Trademeet",
   "items": [{
     "title": "Introduction",
     "path": "introduction.md",

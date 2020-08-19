@@ -2,9 +2,12 @@ import { x } from '../modules/xscript.mjs';
 import { xdata } from '../data/xdata.mjs';
 import { utils } from '../modules/utils.mjs';
 import { router } from '../modules/jsnode.mjs';
+import { purify } from '../modules/purify.mjs';
+
 
 const routes = {
   portal(stream, data){
+
     let arr = ['developers', 'entrepreneurs'],
     item = x('div', {class:'row'});
 
@@ -39,23 +42,53 @@ const routes = {
   },
   hub(stream, data){
 
+    let item = x('div', {class: 'form-control'},
+      x('div', {class: 'input-group'},
+        x('input', {
+          class: 'form-control',
+          placeHolder: 'search hub...'
+        }),
+        x('div', {class: 'input-group-append'},
+          x('div', {
+            class: 'icon-search input-group-text',
+            onclick(){
+              utils.get('./api/hub.json', xdata.default.stream.json, function(err,res){
+                if(err){
+                  utils.toast('danger', 'Failed to fetch hub data');
+                  return console.error(err)
+                }
+
+              })
+            }
+          })
+        )
+      )
+    )
+
+    return item
   },
   wiki_article(stream, data){
-    console.log(data)
 
+    let loading = x('div', 'Fetching data', x('span',{class: 'spinner-grow spinner-grow-sm ml-2'}))
+    let item = x('div', loading)
     utils.get_md(data.url, xdata.default.stream.md, function(err,res){
       if(err){
         utils.toast('danger', 'Failed to fetch wiki data');
-        return console.error(err)
+        item.append(x('p', 'Failed to fetch wiki data'));
+        console.error(err)
+      } else {
+        item.append(...utils.parseMD(res));
       }
-      console.log(res)
+      loading.remove();
     })
+    return item;
   },
   wiki(stream, data){
 
     let item = x('div',
       x('h3', data.msg)
     )
+
     utils.get('./api/wiki.json', xdata.default.stream.json, function(err,res){
       if(err){
         utils.toast('danger', 'Failed to fetch wiki data');
@@ -66,7 +99,6 @@ const routes = {
       witem;
 
       for (let i = 0; i < res.length; i++) {
-
         witem = x('div', {class: 'list-group'},
           x('div', {class: 'list-group-item active'}, res[i].category)
         )

@@ -2,6 +2,7 @@ import { x } from './xscript.mjs';
 import { xdata } from '../data/xdata.mjs';
 import { tpl } from '../views/tpl.mjs';
 import { xidb } from './xidb.mjs';
+import { purify } from './purify.mjs';
 
 const wcs = window.crypto.subtle;
 
@@ -372,7 +373,7 @@ const utils = {
    return;
  },
  add_sp: function(item, text){
-   item.append(x('span',{class: 'spinner-grow.spinner-grow-sm.mr-1'}));
+   item.append(x('span',{class: 'spinner-grow spinner-grow-sm mr-1'}));
  },
  remove_sp: function(item, text){
    setTimeout(function(){
@@ -412,6 +413,18 @@ const utils = {
       console.error(err);
       return false;
     }
+  },
+  parseMD(data){
+    try {
+      data = purify.sanitize(md.render(data),{
+        RETURN_DOM: true,
+        FORBID_ATTR: ['style']
+      })
+      return data.children;
+    } catch (err) {
+      return x('p', 'unsafe or invalid data detected')
+    }
+
   }
 }
 

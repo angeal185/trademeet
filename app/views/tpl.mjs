@@ -86,6 +86,14 @@ const tpl = {
             x('button', {
               class: 'btn btn-sm btn-block btn-outline-primary',
               onclick(){
+                router.rout('/hub/user?user='+ encodeURIComponent(ud.login))
+              }
+            }, 'Hub')
+          ),
+          x('div', {class:'text-center mt-2'},
+            x('button', {
+              class: 'btn btn-sm btn-block btn-outline-primary',
+              onclick(){
                 sessionStorage.removeItem('userData')
                 sessionStorage.removeItem('tk')
                 window.dispatchEvent(new CustomEvent("auth-status"))
@@ -896,7 +904,7 @@ const tpl = {
     return x('div', {class: 'col-12'},
         x('div', {class: 'card mb-4'},
           x('div', {class: 'card-body'},
-            x('div', {class: 'media'},
+            x('div', {class: 'text-center'},
               x('img', {
                 class: 'img-thumbnail mr-4 user-img',
                 src: obj.avatar_url || xdata.app.user_logo,
@@ -904,11 +912,12 @@ const tpl = {
                   evt.target.src = xdata.app.user_logo;
                 }
               }),
-              x('div', {class: 'media-body'},
+              x('div', {class: 'text-center'},
                 x('h4', {class: 'mb-4'}, obj.login),
                 x('p', {class: 'user-txt'}, obj.bio || ''),
                 x('p', {class: 'user-txt'}, obj.location || ''),
-                x('p', {class: 'user-txt'}, obj.blog || '')
+                x('p', {class: 'user-txt'}, obj.blog || ''),
+                x('button', {class: 'btn btn-outline-default mt-2'}, 'View my hub')
               )
             )
           )

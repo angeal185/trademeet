@@ -76,6 +76,10 @@ const xviews = Object.assign({
     xviews.build = null;
     return item
   },
+  hub_user(stream, data){
+
+      
+  },
   profile(stream, data){
     try {
       //body...
@@ -93,12 +97,12 @@ const xviews = Object.assign({
     }
 
     let contrib = x('p', {class: 'user-txt'}),
-    authored = x('p', {class: 'user-txt'}),
+    authored = x('p', {class: 'user-txt mb-4'}),
     item = x('div', {class: 'row'},
       x('div', {class: 'col-12'},
         x('div', {class: 'card mb-4'},
           x('div', {class: 'card-body'},
-            x('div', {class: 'media'},
+            x('div', {class: 'text-center'},
               x('img', {
                 class: 'img-thumbnail mr-4 user-img',
                 src: obj.avatar_url,
@@ -106,7 +110,7 @@ const xviews = Object.assign({
                   evt.target.src = xdata.app.user_logo;
                 }
               }),
-              x('div', {class: 'media-body'},
+              x('div', {class: 'text-center'},
                 x('h4', {class: 'mb-4'}, obj.login),
                 x('p', {class: 'user-txt'}, obj.bio || ''),
                 x('p', {class: 'user-txt'}, obj.location || ''),
@@ -154,6 +158,51 @@ const xviews = Object.assign({
         authored.textContent = 'Author of '+ cnt +' '+ ttl +' issues';
         stream.lsSet('userContrib', user_obj)
       })
+    })
+
+    utils.get('./api/hub.json', xdata.default.stream.json, function(err,res){
+      if(err){
+        utils.toast('danger', 'Failed to fetch hub data');
+        return console.error(err)
+      }
+      let has_hub = false
+      for (let i = 0; i < res.length; i++) {
+        if(res[i][0] === obj.login){
+          has_hub = true;
+          break;
+        }
+      }
+      if(has_hub){
+        authored.after(
+          x('div',
+            x('button', {
+              class: 'btn btn-sm btn-outline-default btn-outline-primary mb-2',
+              onclick(){
+                router.rout('/hub/user?user='+ encodeURIComponent(obj.login))
+              }
+            }, 'view hub')
+          ),
+          x('div',
+            x('button', {
+              class: 'btn btn-sm btn-outline-default btn-outline-primary',
+              onclick(){
+                router.rout('/hub/remove')
+              }
+            }, 'remove hub')
+          )
+        )
+      } else {
+        authored.after(
+          x('div',
+            x('button', {
+              class: 'btn btn-sm btn-outline-default btn-outline-primary mb-2',
+              onclick(){
+                router.rout('/hub/add')
+              }
+            }, 'add hub')
+          )
+        )
+      }
     })
 
     return item;
@@ -295,7 +344,7 @@ const xviews = Object.assign({
   },
   forum(stream, data){
     let item = x('div');
-    
+
     utils.get(xdata.app.api +'/categories.json', xdata.default.stream.json, function(err,cats){
       if(err){return console.error(err)}
       for (let i = 0; i < cats.length; i++) {
