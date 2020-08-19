@@ -900,6 +900,7 @@ const tpl = {
     return sect;
   },
   user_card(obj, router){
+    let utype = x('h5');
 
     return x('div', {class: 'col-12'},
       x('div', {class: 'card mb-4'},
@@ -913,8 +914,9 @@ const tpl = {
               }
             }),
             x('div', {class: 'text-center'},
-              x('h4', {class: 'mb-4'}, obj.login),
-              x('p', {class: 'user-txt'}, obj.bio || ''),
+              x('h4', obj.login),
+              utype,
+              x('p', {class: 'user-txt mt-4'}, obj.bio || ''),
               x('p', {class: 'user-txt'}, obj.location || ''),
               x('p', {class: 'user-txt'}, obj.blog || ''),
               function(){
@@ -927,17 +929,21 @@ const tpl = {
                   let has_hub = false
                   for (let i = 0; i < res.length; i++) {
                     if(res[i][0] === obj.login){
+                      utype.textContent = res[i][1]
+                      if(res[i].length === 3){
+                        utype.textContent = (utype.textContent + ' / ' + res[i][2]);
+                      }
+                      btn.textContent = 'View my hub'
+                      btn.onclick = function(){
+                        router.rout('/hub/user?user='+ encodeURIComponent(obj.login))
+                      }
                       has_hub = true;
                       break;
                     }
                   }
-                  if(has_hub){
-                    btn.textContent = 'View my hub'
-                    btn.onclick = function(){
-                      router.rout('/hub/user?user='+ encodeURIComponent(obj.login))
-                    }
-                  } else {
-                    btn.textContent = 'no hub yet'
+                  if(!has_hub){
+                    btn.textContent = 'no hub yet';
+                    utype.remove()
                   }
                 })
                 return btn;
