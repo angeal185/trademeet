@@ -28,7 +28,7 @@ const xdata = Object.assign({
     delete_meta: false,
     webmanifest: './app/manifest.webmanifest',
     base_script_name: 'main',
-    csp: "default-src 'self';img-src *;object-src 'none';frame-src 'none';block-all-mixed-content;upgrade-insecure-requests;connect-src http://localhost:8000 https://raw.githubusercontent.com/wiki/angeal185/trademeet/ "+ origin +"/ "+ hub_base +"/ "+ github_api,
+    csp: "default-src 'self';img-src *;object-src 'none';frame-src 'none';block-all-mixed-content;upgrade-insecure-requests;connect-src https://*.github.io/trademeet-user-hub/ http://localhost:8000 https://raw.githubusercontent.com/wiki/angeal185/trademeet/ "+ origin +"/ "+ hub_base +"/ "+ github_api,
     meta: [{
       name: 'viewport',
       content: 'width=device-width, initial-scale=1'
@@ -67,9 +67,7 @@ const xdata = Object.assign({
       href: './app/img/ico/safari-pinned-tab.svg',
       color: '#000000'
     }],
-    js_head:[{
-      src: './app/js/markdownit.js'
-    }],
+    js_head:[],
     js_body:[],
     jsonLD: jsonld,
     strip_unsafe: ['eval'],
@@ -83,6 +81,14 @@ const xdata = Object.assign({
         charset: 'utf-8'
       },
       json: {
+        method: 'GET',
+        headers: {
+          'Sec-Fetch-Dest': 'object',
+          'Sec-Fetch-mode': 'cors',
+          'Sec-Fetch-Site': 'cross-site'
+        }
+      },
+      jsonauth: {
         method: 'GET',
         headers: {
           'Sec-Fetch-Dest': 'object',
@@ -149,6 +155,11 @@ const xdata = Object.assign({
     issues_feed: issues_feed,
     news_feed: news_feed,
     comment_per_page: 100,
+    hub: {
+      user_base: 'https://{{user}}.github.io/trademeet-user-hub/',
+      user_react: github_api +'/repos/{{user}}/trademeet-user-hub/issues/1/reactions',
+      user_comments: github_api +'/repos/{{user}}/trademeet-user-hub/issues/1'
+    },
     forum: {
       latest_issues_max: 3,
       max_tags: 3,

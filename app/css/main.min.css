@@ -444,3 +444,12 @@ margin-top: 1rem;
 .capital{
   text-transform: capitalize;
 }
+
+.hub-head {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.hub-head img {
+  margin-top: -4rem;
+}

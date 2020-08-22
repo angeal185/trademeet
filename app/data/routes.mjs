@@ -42,7 +42,35 @@ const routes = {
     msg: 'Trademeet wiki'
   },
   portal: {
-    msg: 'some terms data here...'
+    list: [{
+      title:'forum',
+      description: 'forum description',
+      dest: '/forum'
+    },{
+      title: 'hub',
+      description: 'hub description',
+      dest: '/hub'
+    },{
+      title: 'wiki',
+      description: 'wiki description',
+      dest: '/wiki'
+    },{
+      title: 'news',
+      description: 'news description',
+      dest: '/news'
+    },{
+      title: 'terms',
+      description: 'terms description',
+      dest: '/terms'
+    },{
+      title: 'contact',
+      description: 'contact description',
+      dest: '/contact'
+    },{
+      title: 'atom feed',
+      description: 'atom feed description',
+      dest: '/atom'
+    }]
   }
 }
 

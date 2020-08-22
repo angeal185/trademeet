@@ -8,24 +8,23 @@ import { purify } from '../modules/purify.mjs';
 const routes = {
   portal(stream, data){
 
-    let arr = ['developers', 'entrepreneurs'],
-    item = x('div', {class:'row'});
+    let item = x('div', {class:'row'});
 
-    for (let i = 0; i < arr.length; i++) {
+    for (let i = 0; i < data.list.length; i++) {
       item.append(
         x('div', {class: 'col-lg-6'},
-          x('div', {class: 'card'},
+          x('div', {class: 'card mb-4'},
             x('div', {class: 'card-body text-center'},
               x('h4', {
                 class:'capital',
-                onclick(){
-
-                }
-              }, arr[i]),
-              x('p', 'I am seeking ', arr[i]),
+              }, data.list[i].title),
+              x('p', data.list[i].description),
               x('button', {
-                class: 'mt-2 btn btn-outline-primary sh-95'
-              }, 'Seek')
+                class: 'mt-2 btn btn-outline-primary btn-sm sh-95',
+                onclick(){
+                  router.rout(data.list[i].dest)
+                }
+              }, 'Select')
             )
           )
         )
@@ -38,6 +37,199 @@ const routes = {
 
   },
   entrepreneurs(stream, data){
+
+  },
+  hub_user(stream, data){
+
+    let user = data.user,
+    src = xdata.app.hub.user_base.replace('{{user}}', user),
+    csrc = xdata.app.hub.user_comments.replace('{{user}}', user),
+    avatar = x('img', {class: 'img-thumbnail user-img'}),
+    headimg = x('img', {class: 'img-fluid'}),
+    page_views = x('button', {
+      class: 'btn btn-sm btn-outline-primary mr-2'
+    }, x('span', {class: 'icon-eye'}), ' Views ', x('span')),
+    page_likes = x('button', {
+      class: 'btn btn-sm btn-outline-primary ml-2',
+      title: 'like '+ user +'\'s profile'
+    }, x('span', {class: 'icon-heart'}), ' Likes ', x('span')),
+    user_page = x('div',
+      x('div', {class: 'hub-head'},
+        headimg,
+        avatar,
+        x('h3', {class: 'mt-2'}, user),
+        x('span', {class: 'text-center'}, page_views, page_likes),
+        x('hr')
+      )
+    ),
+    user_profile = x('div',
+      x('hr', {class: 'mb-4 mt-2'}),
+    ),
+    item = x('div', user_page, user_profile),
+    reactions = xdata.app.hub.user_react.replace('{{user}}', user),
+    tk = 'token '+ stream.ssGet('tk'),
+    obj = {
+      url: reactions,
+      opt: xdata.default.stream.react
+    },
+    jheaders = xdata.default.stream.jsonauth,
+    fheaders = xdata.default.stream.fetch;
+
+    obj.opt.headers['Authorization'] = tk;
+    obj.opt.body = JSON.stringify({content: 'eyes'});
+    jheaders.headers['Authorization'] = tk;
+    fheaders.headers['Authorization'] = tk;
+
+
+    utils.get(src + 'api/profile.json', xdata.default.stream.json, function(err,profileData){
+      if(err){return console.error(err)}
+      headimg.src = profileData.head_img;
+
+      utils.get(xdata.app.users_data + user, jheaders, function(err,userData){
+        if(err){return console.error(err);}
+        avatar.src = userData.avatar_url;
+
+        utils.react(obj, function(err,res){
+          if(err){console.error(err)}
+
+          let profile_div = x('div', {class: 'row'}),
+          skills_div = x('div', {class: 'row'}),
+          experience_div = x('div', {class: 'row'}),
+          contact_div = x('div', {class: 'row'}),
+          showcase_div = x('div', {class: 'row'}),
+          keys = Object.keys(profileData.user);
+
+          utils.get_md(src + 'index.md', xdata.default.stream.md, function(err,res){
+            if(err){return console.error(err)}
+            res = utils.parseMD(res);
+            if(typeof res === 'object' && !res.length){
+              user_page.append(res)
+            } else {
+              user_page.append(...res)
+            }
+          })
+
+
+          utils.get(csrc, fheaders, function(err,userIssue){
+            if(err){return console.error(err);}
+            let v = userIssue.reactions.eyes;
+            page_views.lastChild.textContent = v;
+            page_views.title = v + ' page views';
+            page_likes.lastChild.textContent = userIssue.reactions.heart;
+
+          })
+
+
+          for (let i = 0, keys = Object.keys(profileData.user); i < (keys.length -1); i++) {
+            profile_div.append(
+              x('div', {class: 'col-lg-6'},
+                x('div', {class: 'form-group'},
+                  x('label', keys[i]),
+                  x('input', {
+                    class: 'form-control',
+                    type: 'text',
+                    readOnly: 'true',
+                    value: profileData.user[keys[i]]
+                  })
+                )
+              )
+            )
+          }
+
+          for (let i = 0; i < profileData.skills.length; i++) {
+            skills_div.append(
+              x('div', {class: 'col-lg-6'},
+                x('div', {class: 'card mb-4'},
+                  x('div', {class: 'card-body'},
+                    x('h3', profileData.skills[i].type),
+                    x('h5', 'Years: ', x('span', profileData.skills[i].years)),
+                    x('h5', 'Level: ', x('span', profileData.skills[i].level))
+                  )
+                )
+              )
+            )
+          }
+
+          for (let i = 0; i < profileData.work_history.length; i++) {
+            experience_div.append(
+              x('div', {class: 'col-lg-6'},
+                x('div', {class: 'card mb-4'},
+                  x('div', {class: 'card-body'},
+                    x('h5', 'Title: ', x('span', profileData.work_history[i].title)),
+                    x('h5', 'Organization: ', x('span', profileData.work_history[i].organization)),
+                    x('h5', 'Duration: ', x('span', profileData.work_history[i].duration)),
+                    x('h5', 'Role: ', x('span', profileData.work_history[i].role))
+                  )
+                )
+              )
+            )
+          }
+
+          for (let i = 0; i < profileData.showcase.length; i++) {
+            showcase_div.append(
+              x('div', {class: 'col-lg-6'},
+                x('div', {class: 'card mb-4'},
+                  x('div', {class: 'card-body'},
+                    x('h5', profileData.showcase[i].title),
+                    x('p', x('span', profileData.showcase[i].description)),
+                    x('a', {
+                      target:'_blank',
+                      href: utils.sanitizeURI(profileData.showcase[i].link)
+                    }, 'link')
+                  )
+                )
+              )
+            )
+          }
+
+          for (let i = 0; i < profileData.contact.length; i++) {
+            contact_div.append(
+              x('div', {class: 'col-lg-6'},
+                x('div', {class: 'card mb-4'},
+                  x('div', {class: 'card-body'},
+                    x('h5', 'Contact type: ', x('span', profileData.contact[i].type)),
+                    x('h5', profileData.contact[i].data)
+                  )
+                )
+              )
+            )
+          }
+
+          user_profile.append(
+            x('h2', 'Biography'),
+            x('div', {class: 'card mb-4'},
+              x('div', {class: 'card-body'},
+                x('p', profileData.user.biography)
+              )
+            ),
+            x('hr', {class: 'mb-2 mt-2'}),
+            x('h2', 'User data'),
+            x('div', {class: 'card mb-4'},
+              x('div', {class: 'card-body'},
+                profile_div
+              )
+            ),
+            x('hr', {class: 'mb-2 mt-2'}),
+            x('h2', 'Skills'),
+            skills_div,
+            x('hr', {class: 'mb-2 mt-2'}),
+            x('h2', 'Experience'),
+            experience_div,
+            x('hr', {class: 'mb-2 mt-2'}),
+            x('h2', 'Showcase'),
+            showcase_div,
+            x('hr', {class: 'mb-2 mt-2'}),
+            x('h2', 'Contact'),
+            contact_div
+          )
+
+        })
+      })
+    })
+
+
+
+    return item;
 
   },
   hub(stream, data){

@@ -1,3 +1,4 @@
+import { md } from './md.mjs';
 import { x } from './xscript.mjs';
 import { xdata } from '../data/xdata.mjs';
 import { tpl } from '../views/tpl.mjs';
@@ -416,6 +417,8 @@ const utils = {
   },
   parseMD(data){
     try {
+      console.log(typeof md)
+      console.log(md.render(data))
       data = purify.sanitize(md.render(data),{
         RETURN_DOM: true,
         FORBID_ATTR: ['style']
@@ -424,7 +427,6 @@ const utils = {
     } catch (err) {
       return x('p', 'unsafe or invalid data detected')
     }
-
   }
 }
 

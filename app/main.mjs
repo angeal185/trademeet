@@ -19,28 +19,30 @@ router.on('/portal', function(request, stream){
   })
 })
 .on('/hub', function(request, stream){
-  stream.render('hub', request.data, function(err){
-    if(err){return stream.renderErr();}
-  })
+  if(utils.isAuth(router)){
+    stream.render('hub', request.data, function(err){
+      if(err){return stream.renderErr();}
+    })
+  }
 })
 .on('/hub/user', function(request, stream){
-
-  request.data.user = decodeURIComponent(request.params.get('user'))
-  stream.render('hub_user', request.data, function(err){
-    if(err){return stream.renderErr();}
-  })
-  
+  if(utils.isAuth(router)){
+    request.data.user = decodeURIComponent(request.params.get('user'))
+    stream.render('hub_user', request.data, function(err){
+      if(err){return stream.renderErr();}
+    })
+  }
 })
 .on('/hub/add', function(request, stream){
   if(utils.isAuth(router)){
-    stream.render('profile', request.data, function(err){
+    stream.render('hub_add', request.data, function(err){
       if(err){return stream.renderErr();}
     })
   }
 })
 .on('/hub/remove', function(request, stream){
   if(utils.isAuth(router)){
-    stream.render('profile', request.data, function(err){
+    stream.render('hub_remove', request.data, function(err){
       if(err){return stream.renderErr();}
     })
   }
