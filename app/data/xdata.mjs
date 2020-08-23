@@ -28,7 +28,7 @@ const xdata = Object.assign({
     delete_meta: false,
     webmanifest: './app/manifest.webmanifest',
     base_script_name: 'main',
-    csp: "default-src 'self';img-src *;object-src 'none';frame-src 'none';block-all-mixed-content;upgrade-insecure-requests;connect-src https://*.github.io/trademeet-user-hub/ http://localhost:8000 https://raw.githubusercontent.com/wiki/angeal185/trademeet/ "+ origin +"/ "+ hub_base +"/ "+ github_api,
+    csp: '',
     meta: [{
       name: 'viewport',
       content: 'width=device-width, initial-scale=1'

@@ -2,7 +2,6 @@ import { router, x } from './modules/jsnode.mjs';
 import { xidb } from './modules/xidb.mjs';
 import { utils } from './modules/utils.mjs';
 
-
 router.on('/portal', function(request, stream){
   stream.render('portal', request.data, function(err){
     if(err){return stream.renderErr();}

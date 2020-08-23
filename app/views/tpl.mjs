@@ -1240,10 +1240,52 @@ const tpl = {
   bnav_lnks(router){
     return x('span', {class: 'b-lnks'},
       x('span', {
-        class: 'icon-rss cp',
+        class: 'icon-rss cp ml-2',
         title: 'atom feeds',
         onclick(){
           router.rout('/atom', {})
+        }
+      }),
+      x('span', {
+        class: 'icon-github cp ml-2',
+        title: 'trademeet source',
+        onclick(){
+          window.open(xdata.app.code_base, '', 'noopener')
+        }
+      }),
+      x('span', {
+        class: 'icon-trash cp ml-2',
+        title: 'clear all sensative data',
+        onclick(){
+          try {
+            let ls = Object.keys(localStorage),
+            ss = Object.keys(sessionStorage);
+
+            for (let i = 0; i < ls.length; i++) {
+              localStorage.removeItem(ls[i])
+            }
+            for (let i = 0; i < ss.length; i++) {
+              sessionStorage.removeItem(ss[i])
+            }
+            ss = ls = null;
+
+            xidb.delete_all({index: 'cache'}, function(err){
+              if(err){
+                utils.toast('warning', 'cache only not purged')
+              } else {
+                utils.toast('success', 'storage purged')
+              }
+              setTimeout(function(){
+                location.reload()
+              },2000)
+
+            })
+          } catch (err) {
+            console.error(err)
+            utils.toast('danger', 'storage not purged')
+          }
+
+
         }
       })
     )

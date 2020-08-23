@@ -27,10 +27,10 @@ const routes = {
     msg: 'login page data here...'
   },
   forum: {
-    msg: 'forum page data here...'
+    msg: 'Trademeet forum'
   },
   news: {
-    msg: 'news page data here..'
+    msg: 'Trademeet news'
   },
   contact: {
     msg: 'some contact data here...'
