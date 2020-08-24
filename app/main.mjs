@@ -4,7 +4,6 @@ import { utils } from './modules/utils.mjs';
 import { xworker } from './modules/xworker.mjs';
 
 sessionStorage.setItem('install', 0)
-
 window.addEventListener('start-worker', xworker)
 
 router.on('/portal', function(request, stream){
