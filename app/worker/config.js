@@ -1,6 +1,6 @@
 let ORIGIN =
-//'https://angeal185.github.io/trademeet',
-'http://localhost:8000',
+'https://angeal185.github.io/trademeet',
+//'http://localhost:8000',
 DEV_MODE = false,
 CACHE_VERSION = 1,
 CURRENT_CACHES = {
