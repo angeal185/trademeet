@@ -28,11 +28,10 @@ let defaults = Object.assign(xdata.default, xdata.app, {
   },
   init: function(){
     xutils.build(xdata, xviews['build'](app_main));
-
-    let title = location.hash.slice(2),
-    evt = new CustomEvent('bc-ud', {detail: title});
-    document.title = title
-    window.dispatchEvent(evt)
+    let title = location.hash.slice(2);
+    document.title = title;
+    window.dispatchEvent(new CustomEvent('bc-ud', {detail: title}))
+    window.dispatchEvent(new Event('start-worker'))
 
     return this;
   },
