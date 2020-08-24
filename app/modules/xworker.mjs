@@ -1,6 +1,6 @@
 import { utils } from './utils.mjs'
 function xworker(){
-  let worker = new Worker('app/worker.js');
+  let worker = new Worker('./worker.js');
   window.removeEventListener('start-worker', xworker)
 
   worker.onmessage = function(evt){
