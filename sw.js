@@ -54,7 +54,7 @@ if(!DEV_MODE){
 
 
   self.addEventListener('activate', function(event) {
-    self.skipWaiting();    
+    self.skipWaiting();
   });
 
 
@@ -74,7 +74,7 @@ if(!DEV_MODE){
           integ = 'sha384-' + digest.items[i].hash;
         }
       }
-      console.log(event.request)
+
       req = new Request(event.request.url , {
         bodyUsed: event.request.bodyUsed,
         cache: "reload",
@@ -91,8 +91,6 @@ if(!DEV_MODE){
         signal: event.request.signal,
         status: 200
       });
-
-      console.log(req)
 
     } else {
       req = event.request;
