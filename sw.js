@@ -1,7 +1,8 @@
 importScripts('./app/worker/config.js','./app/worker/digest.js', './app/worker/crypt.js');
 
 function install(cache){
-  let url = ORIGIN + '/'
+  let url = ORIGIN + '/';
+
   fetch(url).then(function(res){
     if (res.status >= 200 && res.status < 300) {
 
@@ -31,8 +32,11 @@ function install(cache){
           "X-XSS-Protection": "1; mode=block"
         }
       });
-      return cache.put(url, resclone);
-    } else {
+      console.log('%cService-worker: %cinstalling updates', 'color:cyan', 'color:lime');
+      return cache.put(url, resclone).then(function(){
+        self.skipWaiting();
+      });
+    } else {self.skipWaiting();
       return Promise.reject(new Error(res.statusText))
     }
   })
@@ -96,9 +100,6 @@ if(!DEV_MODE){
       req = event.request;
     }
 
-
-
-
     event.respondWith(
       caches.open(CURRENT_CACHES.static).then(function(cache) {
         return cache.match(req).then(function(response) {
@@ -151,7 +152,9 @@ if(!DEV_MODE){
 
 self.onmessage = function(evt){
   if (evt.data.type === 'update'){
+    console.log('%cService-worker: %conline', 'color:cyan', 'color:lime');
+    console.log('%cService-worker: %cchecking for updates', 'color:cyan', 'color:lime');
     self.registration.update();
-     return self.skipWaiting();
+    return self.skipWaiting();
   }
 }

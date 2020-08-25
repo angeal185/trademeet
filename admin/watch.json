@@ -1,6 +1,9 @@
 {
   "index": "JfRSPS3d7B/sFeLkdHjld83Syh+fx9HmGEhEdCwj8zWuYg9B0rJSP5y4k9+Robp5tdu4p62pldGZHr8gAyxG9Q==",
   "items": [{
+    "url": "/app/defaults.mjs",
+    "ct": "application/javascript"
+  },{
     "url": "/app/main.mjs",
     "ct": "application/javascript"
   },{
@@ -41,6 +44,15 @@
     "ct": "application/javascript"
   },{
     "url": "/app/modules/xscript.mjs",
+    "ct": "application/javascript"
+  },{
+    "url": "/app/modules/purify.mjs",
+    "ct": "application/javascript"
+  },{
+    "url": "/app/modules/md.mjs",
+    "ct": "application/javascript"
+  },{
+    "url": "/app/modules/xworker.mjs",
     "ct": "application/javascript"
   },{
     "url": "/app/css/bootstrap.min.css",

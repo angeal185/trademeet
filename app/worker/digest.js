@@ -2,6 +2,11 @@ const digest = {
   "index": "JfRSPS3d7B/sFeLkdHjld83Syh+fx9HmGEhEdCwj8zWuYg9B0rJSP5y4k9+Robp5tdu4p62pldGZHr8gAyxG9Q==",
   "items": [
     {
+      "url": "/app/defaults.mjs",
+      "ct": "application/javascript",
+      "hash": "ioDLlJ7IDqjzJZV1JHQV1Ytsu2rqkiSYziAC4EdE8SGmalYkS989bg2g+BVhgARj"
+    },
+    {
       "url": "/app/main.mjs",
       "ct": "application/javascript",
       "hash": "CyaBG4hg9OQ3hyx968iMEoy7xH7PcOXTgqt/Z2kxkpsEBSGgUagvHhs7MtpVpZq/"
@@ -70,6 +75,21 @@ const digest = {
       "url": "/app/modules/xscript.mjs",
       "ct": "application/javascript",
       "hash": "/agOhjZPwrofYerejw4q8CReeeGfCY6umkM69kcRvECY9DoZePsb1QAS5nm4Or37"
+    },
+    {
+      "url": "/app/modules/purify.mjs",
+      "ct": "application/javascript",
+      "hash": "SU+pKwE/ZB5H2aOF5GcODQrCkHhrpVtMTMkrV7vjVDK8cEjTcJRLw5WbHiBV6cR2"
+    },
+    {
+      "url": "/app/modules/md.mjs",
+      "ct": "application/javascript",
+      "hash": "0wahB8qCrMA0wXlzY/1+OPZPfcf2zIQu8swSnmSB9GkTfq7HeuPEkIr7G9RKPqVS"
+    },
+    {
+      "url": "/app/modules/xworker.mjs",
+      "ct": "application/javascript",
+      "hash": "pvmvhO3KcXdLseGyd6UKzmDvdSzIV51yJ5iUM8uMiyMEAIyTNEjgKerFPww5CJhd"
     },
     {
       "url": "/app/css/bootstrap.min.css",

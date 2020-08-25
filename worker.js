@@ -12,6 +12,18 @@ let obj = {
 
     if(evt.type === 'validate'){
       console.log('%cWeb-worker: %cvalidating cache items', 'color:cyan', 'color:lime');
+      let expected = new Set(Object.values(CURRENT_CACHES));
+
+      caches.keys().then(function(cacheNames) {
+        return Promise.all(
+          cacheNames.map(function(cacheName) {
+            if (!expected.has(cacheName)) {
+              return caches.delete(cacheName);
+            }
+          })
+        )
+      })
+
       caches.open(CURRENT_CACHES.static).then(function(cache) {
 
         cache.match(ORIGIN +'/').then(function(res) {
