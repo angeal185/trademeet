@@ -14,7 +14,7 @@ const digest = {
     {
       "url": "/app/data/xdata.mjs",
       "ct": "application/javascript",
-      "hash": "V/CUTgGHXmS5nhTPuij78Z1qDpmQmqGGN4Elpjl7fOtI8XgiWJl+rsqDtA5iW89B"
+      "hash": "MEZEYPvt5JN8pIF4Q/EAiVVQ3AkJ4Lvbh1UEe8ecwRAHruywWWdhepELBsVX8dlI"
     },
     {
       "url": "/app/data/jsonld.mjs",
@@ -24,12 +24,12 @@ const digest = {
     {
       "url": "/app/data/routes.mjs",
       "ct": "application/javascript",
-      "hash": "V0o/w2On7A+hQ6jU09NArlaS7vvlinbhhBoL5PXR3rICtkDxjYGc/3JBUZf1QhcS"
+      "hash": "QfEEbcnekpM35gOUT5pdjXyNMChp2SU+f0pqhETILH/K1jswa+l1fLvfxj1gs68P"
     },
     {
       "url": "/app/data/routes.mjs",
       "ct": "application/javascript",
-      "hash": "V0o/w2On7A+hQ6jU09NArlaS7vvlinbhhBoL5PXR3rICtkDxjYGc/3JBUZf1QhcS"
+      "hash": "QfEEbcnekpM35gOUT5pdjXyNMChp2SU+f0pqhETILH/K1jswa+l1fLvfxj1gs68P"
     },
     {
       "url": "/app/views/xviews.mjs",

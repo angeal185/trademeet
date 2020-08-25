@@ -33,7 +33,7 @@ const routes = {
     msg: 'Trademeet news'
   },
   contact: {
-    msg: 'some contact data here...'
+    msg: 'Contact form'
   },
   terms: {
     msg: 'some terms data here...'

@@ -8,6 +8,7 @@ report_repo = 'angeal185/trademeet-report',
 base_email = 'trademeet@protonmail.ch',
 hub_repo = 'angeal185/trademeet-hub',
 report_repo_issue = '1',
+report_message = '2',
 news_id = 142029577,
 origin = 'https://angeal185.github.io/trademeet',
 code_base = 'https://github.com/angeal185/trademeet',
@@ -160,6 +161,10 @@ const xdata = Object.assign({
       user_base: 'https://{{user}}.github.io/trademeet-user-hub/',
       user_react: github_api +'/repos/{{user}}/trademeet-user-hub/issues/1/reactions',
       user_comments: github_api +'/repos/{{user}}/trademeet-user-hub/issues/1'
+    },
+    contact: {
+      base_email: base_email,
+      create_message: github_api +'/repos/'+ report_repo +'/issues/'+ report_message +'/comments',
     },
     forum: {
       latest_issues_max: 3,

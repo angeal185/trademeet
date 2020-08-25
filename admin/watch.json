@@ -16,9 +16,6 @@
     "url": "/app/data/routes.mjs",
     "ct": "application/javascript"
   },{
-    "url": "/app/data/routes.mjs",
-    "ct": "application/javascript"
-  },{
     "url": "/app/views/xviews.mjs",
     "ct": "application/javascript"
   },{

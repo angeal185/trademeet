@@ -328,7 +328,95 @@ const routes = {
     return x('p', data.msg)
   },
   contact(stream, data){
-    return x('p', data.msg)
+
+    
+    let obj = {}
+    return x('div', {'class': 'row justify-content-center'},
+      x('div', {'class': 'col-lg-9'},
+        x('div', {'class': 'card'},
+          x('div', {'class': 'card-body'},
+            x('h3', {'class': 'text-center'}, data.msg),
+            x('div', {class: 'form-group'},
+              x('input', {
+                class: 'form-control mb-2',
+                placeHolder: 'name',
+                title: '16 characters max',
+                onkeyup(evt){
+                  let val = evt.target.value;
+                  if(val.length > 16){
+                    val = evt.target.value = val.slice(0,16);
+                  }
+                  obj.name = val;
+                }
+              }),
+              x('input', {
+                class: 'form-control mb-2',
+                placeHolder: 'email',
+                title: '32 characters max',
+                onkeyup(evt){
+                  let val = evt.target.value;
+                  if(val.length > 32){
+                    val = evt.target.value = val.slice(0,32)
+                  }
+                  obj.email = val;
+                }
+              }),
+              x('textarea', {
+                class: 'form-control mb-2',
+                title: '256 characters max',
+                placeHolder: 'message',
+                rows: 4,
+                onkeyup(evt){
+                  let val = evt.target.value;
+                  if(val.length > 256){
+                    val = evt.target.value = val.slice(0,256)
+                  }
+                  obj.msg = val
+                }
+              }),
+              x('button', {
+                class:'btn btn-outline-primary mt-4',
+                onclick: function(evt){
+                  let tk = stream.ssGet('tk');
+                  if(!tk){
+                    return utils.toast('danger', 'Login required to post message')
+                  }
+                  if(
+                    !obj.msg || obj.msg.length > 256 ||
+                    !obj.email || obj.email.length > 32 ||
+                    !obj.name || obj.name.length > 16
+                  ){
+                    return utils.toast('warning', 'invalid form data')
+                  }
+
+                  let data = Object.assign({}, xdata.default.stream.post, {
+                    body: JSON.stringify({body:JSON.stringify(obj)})
+                  });
+
+                  data.headers['Authorization'] = 'token '+ tk;
+                  utils.get(xdata.app.contact.create_message, data, function(err,res){
+                    if(err){
+                      utils.toast('danger', 'Send message failed');
+                      return console.error(err)
+                    }
+                    utils.toast('success', 'Message sent');
+                    evt.target.setAttribute('disabled', '');
+                  })
+
+                }
+              }, 'Submit')
+            )
+          )
+        ),
+        x('h5', {class: 'text-center mt-2'},
+          x('a',{
+            target: '_blank',
+            title: 'contact us directly',
+            href: 'mailto://'+ xdata.app.contact.base_email
+          },xdata.app.contact.base_email)
+        )
+      )
+    )
   }
 }
 
