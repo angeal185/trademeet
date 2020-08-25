@@ -33,6 +33,12 @@ let defaults = Object.assign(xdata.default, xdata.app, {
     window.dispatchEvent(new CustomEvent('bc-ud', {detail: title}))
     window.dispatchEvent(new Event('start-worker'))
 
+    navigator.serviceWorker.getRegistrations().then(function(reg) {
+      for(let registration of reg) {
+        registration.active.postMessage({type: 'update'});
+      }
+    })
+    
     return this;
   },
   render: function(stream, path, data, cb){

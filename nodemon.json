@@ -1,0 +1,17 @@
+{
+  "delay":1000,
+  "restartable": "rs",
+  "ignore": [
+    ".git",
+    "node_modules/**/node_modules"
+  ],
+  "verbose": true,
+  "execMap": {
+    "js": "node",
+	"start": "nodemon ./admin/app/bin/socketIO"
+  },
+  "watch": [
+    "app/"
+  ],
+  "ext": "js json html mjs css"
+}

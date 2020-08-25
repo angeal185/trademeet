@@ -1,0 +1,67 @@
+{
+  "index": "JfRSPS3d7B/sFeLkdHjld83Syh+fx9HmGEhEdCwj8zWuYg9B0rJSP5y4k9+Robp5tdu4p62pldGZHr8gAyxG9Q==",
+  "items": [{
+    "url": "/app/main.mjs",
+    "ct": "application/javascript"
+  },{
+    "url": "/app/data/xdata.mjs",
+    "ct": "application/javascript"
+  },{
+    "url": "/app/data/jsonld.mjs",
+    "ct": "application/javascript"
+  },{
+    "url": "/app/data/routes.mjs",
+    "ct": "application/javascript"
+  },{
+    "url": "/app/data/routes.mjs",
+    "ct": "application/javascript"
+  },{
+    "url": "/app/views/xviews.mjs",
+    "ct": "application/javascript"
+  },{
+    "url": "/app/views/tpl.mjs",
+    "ct": "application/javascript"
+  },{
+    "url": "/app/modules/xutils.mjs",
+    "ct": "application/javascript"
+  },{
+    "url": "/app/modules/jsnode.mjs",
+    "ct": "application/javascript"
+  },{
+    "url": "/app/modules/router.mjs",
+    "ct": "application/javascript"
+  },{
+    "url": "/app/modules/stream.mjs",
+    "ct": "application/javascript"
+  },{
+    "url": "/app/modules/utils.mjs",
+    "ct": "application/javascript"
+  },{
+    "url": "/app/modules/xidb.mjs",
+    "ct": "application/javascript"
+  },{
+    "url": "/app/modules/xscript.mjs",
+    "ct": "application/javascript"
+  },{
+    "url": "/app/css/bootstrap.min.css",
+    "ct": "text/css"
+  },{
+    "url": "/app/css/main.min.css",
+    "ct": "text/css"
+  },{
+    "url": "/app/fonts/roboto-regular.woff2",
+    "ct": "font/woff2"
+  },{
+    "url": "/app/fonts/roboto-medium.woff2",
+    "ct": "font/woff2"
+  },{
+    "url": "/app/fonts/roboto-light.woff2",
+    "ct": "font/woff2"
+  },{
+    "url": "/app/fonts/roboto-bold.woff2",
+    "ct": "font/woff2"
+  },{
+    "url": "/app/fonts/ico.woff2",
+    "ct": "font/woff2"
+  }]
+}

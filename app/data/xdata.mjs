@@ -5,6 +5,7 @@ import { jsonld } from './jsonld.mjs';
 const repo = 'angeal185/trademeet-issues',
 news_repo = 'angeal185/trademeet-news',
 report_repo = 'angeal185/trademeet-report',
+base_email = 'trademeet@protonmail.ch',
 hub_repo = 'angeal185/trademeet-hub',
 report_repo_issue = '1',
 news_id = 142029577,

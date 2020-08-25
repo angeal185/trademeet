@@ -25,20 +25,18 @@ const crypt = {
     str = new TextEncoder().encode(str);
     wcs.digest({name: "SHA-512"},str)
     .then(function(hash){
-      hash =  String.fromCharCode.apply(null, new Uint8Array(hash))
-
-
+      hash =  String.fromCharCode.apply(null, new Uint8Array(hash));
       cb(false, btoa(hash));
     })
     .catch(function(err){
       cb(err)
     });
   },
-  getHash(itype){
-    let scripts = digest[itype].items,
+  getHash(){
+    let scripts = digest.items,
     cnt = 0
     for (let i = 0; i < scripts.length; i++) {
-      crypt.fetch(scripts[i].url, {ct: digest.scripts.ct}, function(err,res){
+      crypt.fetch(scripts[i].url, {ct: scripts[i].ct}, function(err,res){
         if(err){return console.log(err)}
         crypt.hash(res, function(err,hash){
           if(err){return console.log(err)}
@@ -50,7 +48,6 @@ const crypt = {
         })
 
       })
-      // body...
     }
   }
 }

@@ -1,75 +1,110 @@
 const digest = {
-  index: 'JfRSPS3d7B/sFeLkdHjld83Syh+fx9HmGEhEdCwj8zWuYg9B0rJSP5y4k9+Robp5tdu4p62pldGZHr8gAyxG9Q==',
-  scripts: {
-    ct: 'application/javascript',
-    items: [{
+  "index": "JfRSPS3d7B/sFeLkdHjld83Syh+fx9HmGEhEdCwj8zWuYg9B0rJSP5y4k9+Robp5tdu4p62pldGZHr8gAyxG9Q==",
+  "items": [
+    {
+      "url": "/app/main.mjs",
+      "ct": "application/javascript",
+      "hash": "CyaBG4hg9OQ3hyx968iMEoy7xH7PcOXTgqt/Z2kxkpsEBSGgUagvHhs7MtpVpZq/"
+    },
+    {
       "url": "/app/data/xdata.mjs",
-      "hash": "rO5oPYyrttTtHnbEYpf3bBp+N1+0pNR9y03LJo9TZCsG0vgzLILpPv7ID1N2vF0xfp9+YYo8fJqZ2H9rjTOQkw=="
-    },{
+      "ct": "application/javascript",
+      "hash": "V/CUTgGHXmS5nhTPuij78Z1qDpmQmqGGN4Elpjl7fOtI8XgiWJl+rsqDtA5iW89B"
+    },
+    {
       "url": "/app/data/jsonld.mjs",
-      "hash": "W4M4F1hPYPcs4q+rGuDCVPvFirexazEd87ow2F7g2GO8A8NJAyd76p5mQq840VnBQp1ddrwlW1iP2cKN82Izlw=="
-    },{
+      "ct": "application/javascript",
+      "hash": "XUmqm4eRJBPLBfbu+t1QN7+4HZPcGFRcMNuteHcSOEiRmpLIi4qoZ0HQxz12Oppg"
+    },
+    {
       "url": "/app/data/routes.mjs",
-      "hash": "tUKt2QpjHoLQKHgtuairHf9zpMlKlcNVJVtB46p5gxRLxTT3SxVFmtW1FAHhZAwoFkngE56iCXwNHNcaeN4cQw=="
-    },{
+      "ct": "application/javascript",
+      "hash": "V0o/w2On7A+hQ6jU09NArlaS7vvlinbhhBoL5PXR3rICtkDxjYGc/3JBUZf1QhcS"
+    },
+    {
       "url": "/app/data/routes.mjs",
-      "hash": "tUKt2QpjHoLQKHgtuairHf9zpMlKlcNVJVtB46p5gxRLxTT3SxVFmtW1FAHhZAwoFkngE56iCXwNHNcaeN4cQw=="
-    },{
+      "ct": "application/javascript",
+      "hash": "V0o/w2On7A+hQ6jU09NArlaS7vvlinbhhBoL5PXR3rICtkDxjYGc/3JBUZf1QhcS"
+    },
+    {
       "url": "/app/views/xviews.mjs",
-      "hash": "MoneX7kDR5RyYL4ETz0grj7O7L3re+QWIElNFOT/MVsvQm+KTU/Yxy7HWx4ao0k2+A5QJ53gtaSv6rw8lThcDw=="
-    },{
+      "ct": "application/javascript",
+      "hash": "VyS0vzsFvW+mWL1zgXTIoV/8Nmk5rv/DHAM/suSwV0cR9jG7R04n37zeWHHqpr46"
+    },
+    {
       "url": "/app/views/tpl.mjs",
-      "hash": "p0FssDYLhEFY2bVABA6N/fmlah9TK6Qok6ywLT4BbWKKE13rfIXL2BNyAGmpAbfL6oMHhno0jXvghkbO+M3Uqw=="
-    },{
+      "ct": "application/javascript",
+      "hash": "emV9gip1QTuRui/aonyOzAOl/qG+m9HWkDBrLW0qCSlrl7xRBvvE71qsKNWPBuXd"
+    },
+    {
       "url": "/app/modules/xutils.mjs",
-      "hash": "xfbMMT/vX2to6e7NfRCjAGLYfHmwJX53k/cgUreBXGGcSJ9OELXqRkHNRAJVv0QQpDV4FjjD8XQc0vWLI0av7A=="
-    },{
+      "ct": "application/javascript",
+      "hash": "EJmqbIj3QTNXnF1McfFbZU/hRQMlyGGeUjr0VJSNcZF2K3HVS2uBPkGOVk0S/l5u"
+    },
+    {
       "url": "/app/modules/jsnode.mjs",
-      "hash": "6NMp4jhrmihuINiVtIFMuiZsfZQepEaYAbjK8L+2xxDYQ/ZXe2Khe8bquI0UvNOogCf6x9Y+6Ir4sIr4DNR+vw=="
-    },{
+      "ct": "application/javascript",
+      "hash": "Pqr/1EtdkrGDGlmTbxVj7eOSQJGiatKVna0CSzY2bfXY+4gwjtYbiqvax1MqJFQ6"
+    },
+    {
       "url": "/app/modules/router.mjs",
-      "hash": "KK2S1Dz8zq2fl5UiEbq/2/5FJbP/x7zi5VEevenoDmppGfxk41fNVaHObbl3p0bevdUWNhtIKXJTa3TCvR2x7Q=="
-    },{
+      "ct": "application/javascript",
+      "hash": "Uq7M8cgZ0f5EOUC3UXIeX6Y6thokQ7rFQKd+4jFa1Ty2qLACoaDr2Z2LSmB7PQJZ"
+    },
+    {
       "url": "/app/modules/stream.mjs",
-      "hash": "a9xZ21Y/THk9OR8E+rkvY2V3mvKfbegv+5lZAMbOol5EBJuqIyh8dESHmkIAGP/G8YqMyRvB6XyHJJd0WQif8A=="
-    },{
+      "ct": "application/javascript",
+      "hash": "vWjHvCUv1Qmp7UirhvkJHU+R/YQP1D9Fh/0zVL5bMvRusCNXFTtkcfB/3XpKDYZb"
+    },
+    {
       "url": "/app/modules/utils.mjs",
-      "hash": "0dtWC9TLMDUPj94hYLJs8UQPAPHFKI2JgSDiO0KShYHjquQ3WxQ8aWsVobu9dJPYJ/akOWl4W52v6CFiPSRF0Q=="
-    },{
+      "ct": "application/javascript",
+      "hash": "V2EvLTtUDFRajp6Eg3sUrNXP6aOq+pqYgIz+JGd0b1A7jTX7bvwiUXM6v1jGpcEu"
+    },
+    {
       "url": "/app/modules/xidb.mjs",
-      "hash": "+G7jUlsZT8URwsrSNvGUn8M9+O1LFa2C9PeuPIKuuQuVmm7Tc6H1LCEEzCL0mBZnN4i4FqHLc7hGCKln565y4Q=="
-    },{
+      "ct": "application/javascript",
+      "hash": "RIYK/Tj2Yb/Zp1D3SKCJLALhgyor4pS3YulB4U6Eo0AgfWw2Z5jzk3EeCzO9G1e7"
+    },
+    {
       "url": "/app/modules/xscript.mjs",
-      "hash": "CxAXwzeTMMnQf+qh+VjVieMOdbULwSXgjkha/PrdJWTLMcXboV4ONmuHl3CJ3pXee3fW3Q5BoWLVyPopoaUmmQ=="
-    }]
-  },
-  css: {
-    ct: 'text/css',
-    items: [{
+      "ct": "application/javascript",
+      "hash": "/agOhjZPwrofYerejw4q8CReeeGfCY6umkM69kcRvECY9DoZePsb1QAS5nm4Or37"
+    },
+    {
       "url": "/app/css/bootstrap.min.css",
-      "hash": "xSXikGMcQYhZhRWuihOmDhebgcQNY3+dG4mKqXk7lu9PoCr1OI6CcWfQPAGT/fbfCTEwX7+hhIDGEsZ025XNDw=="
-    },{
+      "ct": "text/css",
+      "hash": "m97P33L8DNu5s0Iszzfmicwe6eNB1BQtII2hmgZklAOGUln2eJUyyPSwaHUjPfLq"
+    },
+    {
       "url": "/app/css/main.min.css",
-      "hash": "1dlLPBVIJII0NXan7WCXF4htgtqrZe6LT0hZDPiZYmEg2MHIxrbSm0jWF4JSjxdygG0OC/m/aU8LZGxj0ket0A=="
-    }]
-  },
-  fonts: {
-    ct: 'font/woff2',
-    items: [{
+      "ct": "text/css",
+      "hash": "b4QhCvHw5aQTGusXM5frAZ4LbU3f9AJblW6YE1Qx6CywXXImTMDdJCc56lpxePHa"
+    },
+    {
       "url": "/app/fonts/roboto-regular.woff2",
-      "hash": "y9O7M1BENTcEEm4KA+ERPE7j4/9JPxaqPK1fQCRcaxHx21PoKeSByyo66zxax47NtZumeDqOeXKUd/DN3cGOQQ=="
-    },{
+      "ct": "font/woff2",
+      "hash": "u+CfGz269lpzKHziEFiGn6hcNZmDAEMr7CqNzJiz1oXunEPynPyPVEmmBHFMiTNN"
+    },
+    {
       "url": "/app/fonts/roboto-medium.woff2",
-      "hash": "tKU8dyirGmuX3JeHXNiei/js4ao6dqBgskhigcdOINPk1/zk6iiWK/IFuOeEe9T5LQzTqfQ/VVax9og4UGCQag=="
-    },{
+      "ct": "font/woff2",
+      "hash": "ZE0elpJD7VmJPXd+yIJjDx+LUfYWhPzKFMzNcWAzDr90PCecqUrVIwO/xW/cmhUm"
+    },
+    {
       "url": "/app/fonts/roboto-light.woff2",
-      "hash": "xtvEzS3UAS+568OZhqcsjMjWUwXkoxYuECCJzvVdyJD+UV50s3V+3ZJRn3vWyyBjGCfGnvRGQRiuARiGKGARng=="
-    },{
+      "ct": "font/woff2",
+      "hash": "QOsXJJphHZSh5nE9tVuz3Try5MzwWeBMsXDe3Fz9kaM2APBe1aVY9GANEN98bY5m"
+    },
+    {
       "url": "/app/fonts/roboto-bold.woff2",
-      "hash": "pLDo6CSNnuJQIY/C9Fsx2i7SefEBgz8mCVrzjPBqobo3FdjA83Nm9iTeGvX/g+5Kul84ZWNlWkQb2pC4LBMpfw=="
-    },{
+      "ct": "font/woff2",
+      "hash": "dpisururVaTWPM/QUdaMhOL9c9ymzU8YrmsKk6rR7g+RFQAr492Gnl+Xv7/f4GlW"
+    },
+    {
       "url": "/app/fonts/ico.woff2",
-      "hash": "Sv8sRNx7NuOlLiNpqUfVZVC716FE76Zhvv4uNjrvTOIZrIEBp43sQkdz3wLPXgnQWjKjOOTP5qxj9vBsp3CXBA=="
-    }]
-  }
+      "ct": "font/woff2",
+      "hash": "bkVTgOM/on5UVRafJDPA42kNyOtzG87ftRwtCUojDOkrpw7Gq0Fw423ROeAn+DiP"
+    }
+  ]
 }

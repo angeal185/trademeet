@@ -33,13 +33,19 @@ STATIC_FILES = [
 CONTENT_TYPES = [
 //  'application/javascript',
   'text/css',
-  'text/html',
+  'text/html'
 //  'font/woff2'
 ],
 hub_base = 'https://angeal185.github.io/trademeet-hub',
 github_api = 'https://api.github.com',
-CSP = "default-src 'self';img-src *;object-src 'none';frame-src 'none';block-all-mixed-content;upgrade-insecure-requests;connect-src https://*.github.io/trademeet-user-hub/ https://angeal185.github.io/trademeet/ http://localhost:8000 https://raw.githubusercontent.com/wiki/angeal185/trademeet/ "+ ORIGIN +"/ "+ hub_base +"/ "+ github_api,
-FP = "microphone 'none'",
+RT = "https://trademeet.report-uri.com/a/d/g",
+RP = "https://trademeet.report-uri.com/r/d/csp/enforce",
+ECT = "https://trademeet.report-uri.com/r/d/ct/enforce",
+NEL = '{"report_to":"default","max_age":31536000,"include_subdomains":false}',
+CSP = "default-src 'self';img-src *;object-src 'none';frame-src 'none';block-all-mixed-content;upgrade-insecure-requests;connect-src https://*.github.io/trademeet-user-hub/ https://angeal185.github.io/trademeet/ http://localhost:8000 https://raw.githubusercontent.com/wiki/angeal185/trademeet/ "+ ORIGIN +"/ "+ hub_base +"/ "+ github_api +';report-to default;report-uri '+ RP +';',
+FP = "accelerometer 'none';autoplay 'none';camera 'none';document-domain 'none';encrypted-media 'none';fullscreen 'none';geolocation 'none';gyroscope 'none';magnetometer 'none';microphone 'none';xr-spatial-tracking 'none';usb 'none';sync-xhr 'self';picture-in-picture 'none';payment 'none';midi 'none';",
+EXPECT_CT = 'report-uri="'+ ECT +'", enforce, max-age=31536000',
+REPORT_TO = '{"group":"default","max_age":31536000,"endpoints":[{"url":'+ RT +'}],"include_subdomains":false}',
 BASE_PAGE = new Blob(['<!DOCTYPE html><script src="./app/main.mjs" type="module" name="main" defer></script></head><body></body></html>'], {type : 'text/html'})
 
 for (let i = 0; i < STATIC_FILES.length; i++) {
